@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#093e43">
+  <meta name="description" content="Keep your colour on top. A tabletop cup-stacking showdown. Play solo or pass and play with friends.">
+  <title>Cup Heist</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/screens.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/tutorial.css">
+  <link rel="stylesheet" href="css/local-play.css">
+  <link rel="stylesheet" href="css/cup-heist.css">
+  <link rel="stylesheet" href="css/teal-theme.css">
+  <link rel="stylesheet" href="css/responsive-fit.css">
+</head>
+<body class="menu-mode">
+
+  <header class="topbar">
+    <button id="home" class="brand" aria-label="Main menu"><span class="brand-mark"><i></i><i></i><i></i></span><span>CUP HEIST</span></button>
+    <div class="tools">
+      <button id="settings" class="icon-button" aria-label="Settings">⚙</button>
+      <button id="symbols" class="icon-button" aria-label="Toggle cup symbols" title="Cup symbols off" aria-pressed="false">◈</button>
+      <button id="sound" class="icon-button" aria-label="Mute sound" title="Sound">♫</button>
+      <button id="help" class="icon-button" aria-label="How to play">?</button>
+      <button id="pause" class="icon-button" aria-label="Pause game" hidden>Ⅱ</button>
+    </div>
+  </header>
+
+  <section id="menu" aria-label="Main menu">
+    <div class="menu-panel">
+      <div class="menu-identity"><h1>CUP<br><span>HEIST</span></h1></div>
+      <div class="menu-actions"><button id="play" class="primary play-button" disabled>Loading…</button>
+      <button id="localPlay" class="secondary local-button">Pass &amp; Play</button>
+      <button id="learn" class="secondary">How to play</button></div>
+    </div>
+  </section>
+
+  <main id="match" hidden>
+    <div id="players" aria-label="Players and exposed stacks"></div>
+    <section class="turn-strip" aria-label="Current turn">
+      <svg class="timer-ring" viewBox="0 0 64 64" role="img" aria-label="Time remaining in this turn"><circle class="ring-track" cx="32" cy="32" r="26"/><circle id="timeFill" cx="32" cy="32" r="26" pathLength="100"/></svg>
+      <strong id="turnName" aria-live="polite">Your turn</strong>
+    </section>
+    <div class="game-bottom">
+      <div class="instruction"><span class="mini-cup"></span><div><b id="hint">Pick your colour</b><small id="subhint">Keep dragging through other colours</small></div></div>
+      <button id="endTurn" class="quiet-button">End turn <span>→</span></button>
+    </div>
+    <div class="match-footer"><span id="status">36 stacks left</span><div id="turnOrder"></div><span id="watching"></span></div>
+  </main>
+
+  <div id="arena" aria-label="Game board">
+    <canvas id="board" aria-label="Cup stacks: drag your colour’s stack through rival cups, or select it and tap targets"></canvas>
+    <div class="stack-labels" aria-hidden="true"></div>
+    <div id="turnNotice" hidden><small id="noticeLabel">GET READY</small><strong id="noticeName">Your turn</strong><span id="noticeTime">Keep your colour on top</span></div>
+    <div id="capturePop" aria-hidden="true"></div>
+  </div>
+
+  <section id="resultScreen" hidden aria-labelledby="resultTitle">
+    <div id="winnerMedal" class="winner-medal"></div>
+    <div class="result-content"><div class="result-heading"><span class="eyebrow">MATCH COMPLETE</span><h2 id="resultTitle"></h2></div>
+    <p id="resultHighlight" class="result-highlight"></p><div id="resultPlacements" class="result-placements"></div><div class="result-actions"><button id="replay" class="primary">Play again</button><button id="resultHome" class="secondary">Main menu</button></div></div>
+  </section>
+  <div id="toast" role="status"></div>
+  <div id="modal" class="modal-backdrop" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div id="modalEyebrow" class="eyebrow">CUP HEIST</div>
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody"></div>
+      <div id="modalActions"></div>
+    </section>
+  </div>
+  <script defer src="js/game.bundle.js"></script>
+</body>
+</html>

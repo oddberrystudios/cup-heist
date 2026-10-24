@@ -1,0 +1,18 @@
+/* Fit controls to small viewports and display cutouts without changing the theme. */
+.topbar{padding-top:max(18px,env(safe-area-inset-top));padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.modal-backdrop{padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+.modal-card{max-height:calc(100dvh - 32px);overscroll-behavior:contain}
+.result-row .place-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(orientation:landscape) and (max-width:700px){
+ .menu-panel{width:90%;gap:24px}.menu-identity{padding:15px 0}h1{font-size:clamp(65px,13vw,90px);letter-spacing:-5px}.menu-actions{width:230px;max-width:47vw;gap:12px}.menu-actions .primary{font-size:21px}.menu-actions .secondary{font-size:14px}
+ #resultScreen{grid-template-columns:minmax(100px,150px) minmax(0,280px);gap:24px;padding:24px}#resultScreen:before{width:calc(100vw - 32px)}.result-content{width:100%}.winner-medal{width:100px}.winner-medal:after{font-size:40px;top:-35px}.result-actions .primary{font-size:14px}.result-actions .secondary{font-size:12px}
+ [data-kind=help] .modal-card{grid-template-columns:minmax(190px,1fr) minmax(0,1fr);gap:0 14px;padding:18px}.help-scene{width:220px;max-width:100%}.help-cup{width:95px;height:120px;left:0}.help-cup.other,.help-cup.rival{right:0}.help-copy{overflow-wrap:anywhere}
+ [data-kind=handover] .modal-card{width:min(480px,100%);grid-template-columns:130px minmax(0,1fr);padding:18px;gap:0 16px}
+}
+@media(orientation:landscape) and (max-height:360px){
+ .topbar{padding-top:max(9px,env(safe-area-inset-top));height:50px}.menu-actions button{min-height:42px;padding:10px}.menu-actions .primary{min-height:49px}.menu-panel{gap:22px}
+ #resultScreen{gap:20px;padding:20px}.result-content{gap:6px}.result-heading h2{font-size:25px}.result-row{padding:2px 8px}.result-row .portrait{width:25px;height:25px}.result-actions{gap:8px}.result-actions button{padding:9px}.result-highlight{font-size:11px}
+}
+@media(orientation:landscape) and (max-height:360px){
+ [data-kind=help] .help-scene{height:155px}.help-cup{bottom:12px}[data-kind=help] h2{margin:4px 0 8px;font-size:25px}[data-kind=help] .help-copy{margin:4px 0}[data-kind=help] .help-dots{margin:6px 0}
+}

@@ -1,0 +1,34 @@
+/* Corner seats stay outside the interactive canvas. */
+.play-mode { --board-top: 160px; --board-bottom: 174px; --board-width: min(740px, 88vw); }
+.play-mode #arena { top:var(--board-top); bottom:var(--board-bottom); width:var(--board-width); left:50%; transform:translateX(-50%); }
+#players { position:absolute; inset:106px max(6vw, calc((100vw - 780px)/2)) 110px; pointer-events:none; z-index:3; }
+.player { position:absolute; display:flex; align-items:center; gap:9px; min-width:115px; padding:8px 13px 8px 8px; border:2px solid transparent; border-radius:20px; background:#ffffff7a; transition:opacity .3s,background .3s,border-color .3s,box-shadow .3s; }
+.player:nth-child(1) { bottom:0; left:0; }.player:nth-child(2) { top:0; left:0; }.player:nth-child(3) { top:0; right:0; }.player:nth-child(4) { bottom:0; right:0; }
+.player.active { background:#fffdf8; border-color:var(--player); box-shadow:0 5px 18px #54768013; }
+.player.out { opacity:.38; }.player-avatar { width:36px; height:36px; display:block; background:var(--player); border-radius:50%; color:white; }.player-avatar svg { width:100%; height:100%; }
+.player b { display:block; font-size:12px; }.player small { display:block; font-size:9px; margin-top:3px; color:#78949e; }
+.turn-strip { position:absolute; top:76px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:7px; }
+.timer-ring { width:50px; height:50px; filter:drop-shadow(0 3px 5px #456b6810); }
+.timer-ring circle { fill:none; stroke-width:5; }.ring-track { stroke:#cbdfe3; }#timeFill { stroke:var(--accent); stroke-dasharray:100; stroke-dashoffset:0; stroke-linecap:round; transform:rotate(-90deg); transform-origin:center; }
+#turnName { font-size:12px; color:#52717c; font-weight:700; }
+.game-bottom { position:absolute; bottom:55px; left:50%; transform:translateX(-50%); width:min(720px,88%); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.instruction { display:flex; gap:10px; align-items:center; }.instruction b { font-size:12px; display:block; }.instruction small { font-size:10px; color:#839ca7; display:block; margin-top:4px; }
+.mini-cup { display:block; width:22px; height:25px; background:#32b6bd; clip-path:polygon(20% 0,80% 0,100% 85%,90% 100%,10% 100%,0 85%); border-bottom:4px solid #a1d8e2; }
+#endTurn { font-size:11px; white-space:nowrap; }#endTurn span { margin-left:8px; }
+.match-footer { position:absolute; bottom:22px; left:50%; transform:translateX(-50%); width:min(720px,88%); display:flex; justify-content:space-between; color:#8ba1aa; font-size:9px; }#turnOrder { display:flex; gap:6px; align-items:center; }#turnOrder span { display:none; }#turnOrder i { width:6px; height:6px; border-radius:50%; opacity:.35; }#turnOrder i.active { opacity:1; }#watching { font-size:8px; }
+#turnNotice { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:#fffdf5ed; border:2px solid white; border-radius:23px; padding:18px 30px; text-align:center; box-shadow:0 10px 50px #40636f20; pointer-events:none; min-width:210px; }
+#turnNotice small { font-size:8px; letter-spacing:2px; color:#8fa5af; }#turnNotice strong { display:block; font-size:26px; margin:9px 0; color:var(--accent); }#turnNotice span { font-size:11px; color:#7c98a4; }
+#capturePop { position:absolute; right:7%; top:4%; color:#20959d; font-weight:900; font-size:14px; opacity:0; pointer-events:none; }#capturePop.show { animation:capture .65s ease-out; }
+@keyframes capture { 0%{opacity:0;transform:translateY(8px)} 20%{opacity:1} 100%{opacity:0;transform:translateY(-15px)} }
+@media(max-width:600px) {
+ .play-mode { --board-top:153px; --board-bottom:168px; --board-width:100%; }
+ #players { inset:99px 14px 106px; }.player { min-width:94px; padding:6px 9px 6px 6px; gap:6px; border-radius:17px; }.player-avatar { width:31px;height:31px; }.player b { font-size:11px; }.player small { font-size:8px; }
+ .turn-strip { top:72px; }.timer-ring { width:43px;height:43px; }#turnName { font-size:10px; }
+ .game-bottom { bottom:49px;width:91%; }.instruction small { max-width:220px;font-size:9px; }.instruction b { font-size:10px; }#endTurn { padding:9px; font-size:10px; }.match-footer { bottom:20px;width:90%; }
+}
+@media(max-height:560px) and (min-width:601px) {
+ .play-mode { --board-top:65px; --board-bottom:65px; --board-width:calc(100vw - 300px); }
+ #players { inset:80px 22px 82px; }.player { min-width:110px; }
+ .turn-strip { top:14px; flex-direction:row;gap:10px; }.timer-ring { width:35px;height:35px; }
+ .game-bottom { bottom:12px;width:60%; }.match-footer { display:none; }
+}
