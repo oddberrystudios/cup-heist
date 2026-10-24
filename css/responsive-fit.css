@@ -16,3 +16,18 @@
 @media(orientation:landscape) and (max-height:360px){
  [data-kind=help] .help-scene{height:155px}.help-cup{bottom:12px}[data-kind=help] h2{margin:4px 0 8px;font-size:25px}[data-kind=help] .help-copy{margin:4px 0}[data-kind=help] .help-dots{margin:6px 0}
 }
+
+/* Short landscape: spend the centre on playable cups, with compact side seats. */
+@media (orientation:landscape) and (max-height:560px){
+ .play-mode,.result-mode{--board-top:42px;--board-bottom:max(8px,env(safe-area-inset-bottom));--board-width:calc(100% - 136px - env(safe-area-inset-left) - env(safe-area-inset-right))}
+ .play-mode .topbar{height:42px;padding:4px max(10px,env(safe-area-inset-right)) 0 max(10px,env(safe-area-inset-left))}
+ .play-mode .brand{font-size:10px;letter-spacing:1.4px;min-height:36px}
+ .play-mode #pause{width:44px;height:40px;font-size:19px;border-radius:12px}
+ #players .player{width:60px;gap:4px}
+ .player .player-avatar{width:36px;height:36px;padding:1px;border-width:2px}
+ .player .timer-ring{inset:-7px;width:46px;height:46px}
+ .player>div{min-width:0;width:60px;padding:4px 3px;border-radius:10px}
+ .player b{font-size:10px;max-width:54px;line-height:1.15}
+ .player small{font-size:9px;margin-top:2px}
+ .stack-count{font-size:11px;min-width:20px;padding:2px 4px}
+}

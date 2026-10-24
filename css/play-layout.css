@@ -1,0 +1,60 @@
+/* Gameplay layout: compact information, generous separation, largest fitting table. */
+:root{--safe-top:env(safe-area-inset-top,0px);--safe-right:env(safe-area-inset-right,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px)}
+.play-mode,.result-mode{--board-top:calc(64px + var(--safe-top));--board-bottom:calc(22px + var(--safe-bottom));--board-width: min(1180px,calc(100% - 240px - var(--safe-left) - var(--safe-right)))}
+.play-mode .topbar{height:calc(56px + var(--safe-top));padding:calc(8px + var(--safe-top)) calc(14px + var(--safe-right)) 4px calc(14px + var(--safe-left))}
+.play-mode .brand{min-height:44px;font-size:11px;letter-spacing:1.5px}
+.play-mode #pause{width:44px;height:44px;border-radius:14px}
+#players{padding:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);box-sizing:border-box}
+#players .player{width:90px;gap:8px}
+#players .player-avatar{width:50px;height:50px;padding:2px;border-width:2px}
+#players .player .timer-ring{width:64px;height:64px;inset:-9px}
+#players .player>div{width:90px;min-width:0;max-width:90px;padding:6px;border-radius:11px}
+#players .player b{font-size:12px;line-height:16px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#players .player small{font-size:10px;line-height:13px;margin-top:2px}
+#players .player.active>div{padding-bottom:4px}
+#players .player.out{opacity:.55}
+@media(orientation:portrait){
+ .play-mode,.result-mode{--board-top:calc(132px + var(--safe-top));--board-bottom:calc(88px + var(--safe-bottom));--board-width:min(620px,100%)}
+ #players .player{flex-direction:row;width:140px;height:52px;gap:8px}
+ #players .player-avatar{width:42px;height:42px}
+ #players .player .timer-ring{width:56px;height:56px;inset:-9px}
+ #players .player>div{width:90px;max-width:90px;text-align:left;padding:7px 8px}
+ #players .player b{font-size:12px;line-height:16px}
+ #players .player small{font-size:10px;line-height:13px}
+}
+@media(orientation:portrait) and (max-width:350px){
+ #players .player{width:132px;gap:7px}
+ #players .player>div{width:83px;max-width:83px;padding-left:6px;padding-right:6px}
+}
+@media(orientation:portrait) and (max-height:620px){
+ .play-mode,.result-mode{--board-top:calc(120px + var(--safe-top));--board-bottom:calc(76px + var(--safe-bottom))}
+}
+@media(orientation:landscape) and (max-height:560px){
+ .play-mode,.result-mode{--board-top:calc(50px + var(--safe-top));--board-bottom:calc(10px + var(--safe-bottom));--board-width:calc(100% - 152px - var(--safe-left) - var(--safe-right))}
+ #players .player{width:64px;gap:6px}
+ #players .player-avatar{width:38px;height:38px;padding:1px}
+ #players .player .timer-ring{width:50px;height:50px;inset:-8px}
+ #players .player>div{width:64px;max-width:64px;padding:4px 3px}
+ #players .player b{font-size:11px;line-height:14px}
+ #players .player small{font-size:10px;line-height:12px}
+ #players .player.active>div{padding-bottom:2px}
+}
+@media(orientation:landscape) and (max-height:300px){
+ #players .player{gap:4px}
+ #players .player-avatar{width:32px;height:32px}
+ #players .player .timer-ring{width:44px;height:44px;inset:-8px}
+}
+/* Keep the local setup's primary action visible on short landscape screens. */
+@media(orientation:landscape) and (max-height:360px){
+ [data-kind=local-setup] .modal-card{padding:12px 20px;width:min(540px,100%)}
+ [data-kind=local-setup] h2{font-size:24px;margin:3px 0}
+ [data-kind=local-setup] .eyebrow{margin:0;font-size:7px}
+ [data-kind=local-setup] .local-picker{margin:6px 0}
+ [data-kind=local-setup] .local-picker button{height:36px}
+ [data-kind=local-setup] .local-roster{gap:6px}
+ [data-kind=local-setup] .local-player{padding:3px 8px}
+ [data-kind=local-setup] .local-player .player-avatar{width:28px;height:28px}
+ [data-kind=local-setup] .local-player input{padding:5px 0}
+ [data-kind=local-setup] #modalActions{margin-top:8px}
+ [data-kind=local-setup] #modalActions .primary{padding:10px;min-height:40px}
+}
