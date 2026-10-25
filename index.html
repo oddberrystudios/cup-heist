@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/teal-theme.css">
   <link rel="stylesheet" href="css/responsive-fit.css">
   <link rel="stylesheet" href="css/play-layout.css">
+<link rel="stylesheet" href="css/screen-fit.css">
 </head>
 <body class="menu-mode">
 
@@ -61,13 +62,13 @@
 
   <section id="resultScreen" hidden aria-labelledby="resultTitle">
     <div id="winnerMedal" class="winner-medal"></div>
-    <div class="result-content"><div class="result-heading"><span class="eyebrow">MATCH COMPLETE</span><h2 id="resultTitle"></h2></div>
+    <div class="result-content"><div class="result-heading"><h2 id="resultTitle"></h2></div>
     <p id="resultHighlight" class="result-highlight"></p><div id="resultPlacements" class="result-placements"></div><div class="result-actions"><button id="replay" class="primary">Play again</button><button id="resultHome" class="secondary">Main menu</button></div></div>
   </section>
   <div id="toast" role="status"></div>
   <div id="modal" class="modal-backdrop" hidden>
     <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div id="modalEyebrow" class="eyebrow">CUP HEIST</div>
+      <div id="modalEyebrow" class="eyebrow" hidden></div>
       <h2 id="modalTitle"></h2>
       <div id="modalBody"></div>
       <div id="modalActions"></div>
